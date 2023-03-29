@@ -10,12 +10,12 @@ El proyecto se basa en el uso de un arduino uno para leer la posición actual de
 
 El proyecto requiere hacer uso de lo siguiente:
 
-    1. Arduino uno.
+    1. Un Arduino uno.
 
-    2. Un motor DC con encoder de cuadratura.
+    2. Un motor DC 12V con encoder de cuadratura.
 
     3. Un driver para controlar el motor DC (L298N).
 
-    4. Una fuente de alimentación para el motor(12v).
+    4. Una fuente de alimentación para el motor (12v).
     
     5. Tener instaldo ROS Melodic en tu computadora.
