@@ -1,52 +1,65 @@
-# Motor DC con Encoder de Cuadratura
+# DC Motor with Quadrature Encoder
 
-Este repositorio contiene un proyecto que tiene como objetivo mostrar cómo controlar un motor DC con encoder de cuadratura utilizando un microcontrolador y un algoritmo de control.
+This repository contains a project demonstrating how to control a DC motor with a quadrature encoder using a microcontroller and a control algorithm.
 
-## Funcionamiento del Proyecto
+## Project Overview
 
-El proyecto se basa en el uso de un arduino uno para leer la posición actual del motor DC a través del encoder de cuadratura y ajustar la velocidad del motor para que siga un setpoint dado. Se ha utilizado un algoritmo de control PID para lograr esto.
+The project utilizes an Arduino Uno to read the current position of the DC motor through the quadrature encoder and adjusts the motor speed to follow a given setpoint. A PID control algorithm is employed to achieve this.
 
-## Requerimientos del Proyecto
+## Project Requirements
 
-El proyecto requiere hacer uso de lo siguiente:
+The project requires the following components:
 
-- Un Arduino uno.
+- Arduino Uno
+- 12V DC motor with quadrature encoder
+- Motor driver (L298N)
+- 12V power supply for the motor
+- ROS Melodic installed on your computer
 
--  Un motor DC 12V con encoder de cuadratura.
+## Instructions for Running the Project
 
-- Un driver para controlar el motor DC (L298N).
+1. **Download and Extract:**
+   - Download the repository as a `.zip` file and extract it.
 
--  Una fuente de alimentación para el motor (12v).
+2. **Set Up ROS Workspace:**
+   - Open a terminal and navigate to your ROS workspace:
+     ```bash
+     cd ~/catkin_ws/
+     cd src
+     ```
 
-- Tener instaldo ROS Melodic en tu computadora.
-    
-## Instrucciones para Ejecutar el Proyecto
+3. **Create a New ROS Package:**
+   - Create a new ROS package:
+     ```bash
+     catkin_create_pkg motor_driver rospy roscpp std_msgs
+     cd motor_driver
+     ```
 
-Descarga el contenido del repositorio en .zip y descomprimelo.
+4. **Copy Files:**
+   - Copy the extracted contents of the `.zip` file into the `motor_driver` package directory.
 
-Luego abre una terminal y ejecuta los siguientes comandos:
+5. **Upload Code to Arduino:**
+   - Open the `inal.ino` file in the `src` folder and upload it to the Arduino Uno.
 
-    cd ~/catkin_ws/
-	cd src
-	
-Crea un nuevo paquete de ROS
+6. **Build the Workspace:**
+   - In the terminal, build the workspace:
+     ```bash
+     cd ~/catkin_ws/
+     catkin_make
+     source devel/setup.bash
+     ```
 
-	catkin_create_pkg mortor_drive rospy roscpp std_msgs
-	cd motor_dirver
-	
-Copia el contenido del .zip descomprimido al paquete "motor_driver" que creaste anteriormente.
+7. **Launch ROS Core:**
+   - Start ROS core:
+     ```bash
+     roscore
+     ```
 
-Dentro de la carpeta ***/src***  abre el archivo **inal.ino** y cargalo en el arduino uno.
+8. **Run the Node:**
+   - Open a new terminal and run:
+     ```bash
+     source devel/setup.bash
+     roslaunch motor_driver package_fn.launch
+     ```
 
-Posteriormente en la termianal ejecuta los siguientes comandos:
-
-	cd ~/catkin_ws/
-	catkin_make && soruce devel /setup.bash
-	roscore
-	
-Abre una nueva termianal y ejecuta
-
-	source devel/setup.bash
-	roslaunch motoro_driver  package_fn.launch
-
-Si todo se ejecuta correctamente se deberia de abrir una ventana con varias graficas.
+A window displaying several graphs should appear if everything is set up correctly.
