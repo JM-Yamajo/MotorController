@@ -11,10 +11,10 @@ The project utilizes an Arduino Uno to read the current position of the DC motor
 The project requires the following components:
 
 - Arduino Uno
-- 12V DC motor with quadrature encoder
+- ROS Melodic
 - Motor driver (L298N)
-- 12V power supply for the motor
-- ROS Melodic installed on your computer
+- 12V power supply
+- 12V DC motor with quadrature encoder
 
 ## Instructions for Running the Project
 
